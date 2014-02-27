@@ -20,8 +20,6 @@ var makeQueue = function(){
   };
 
   instance.dequeue = function(){
-    console.log("storage[size]: " + storage[size] + "   size: " + size);
-    console.log(storage);
     if (size > 0) {
       var value = storage[size - 1];
       delete(storage[size - 1]);
