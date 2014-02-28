@@ -1,3 +1,21 @@
+/*
+_ = {};
+
+_.each = function(collection, iterator) {
+  if (Array.isArray(collection)) {
+    for (var i = 0; i < collection.length; i++) {
+      iterator(collection[i], i, collection);
+    }
+  }
+  else {
+    for (var item in collection) {
+      iterator(collection[item], item, collection);
+    }
+  }
+};
+*/
+
+
 var makeLinkedList = function(){
   var list = {};
   list.head = null;
@@ -25,8 +43,23 @@ var makeLinkedList = function(){
     list.head = oldHead.next;
   };
 
-  list.contains = function(target, node){
-    console.log(target, node);
+  list.contains = function(target){
+    var result = false;
+    // _.each(list, function(item){
+    //   if(item.value === target){
+    //     result = true;
+    //   }
+    // });
+    var checkNode = function(node){
+      if(node.value === target){
+        result = true;
+      }
+      if(node.next !== null){
+        checkNode(node.next);
+      }
+    };
+    checkNode(list.head);
+    return result;
   };
 
   return list;
