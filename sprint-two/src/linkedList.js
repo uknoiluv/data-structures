@@ -1,21 +1,3 @@
-/*
-_ = {};
-
-_.each = function(collection, iterator) {
-  if (Array.isArray(collection)) {
-    for (var i = 0; i < collection.length; i++) {
-      iterator(collection[i], i, collection);
-    }
-  }
-  else {
-    for (var item in collection) {
-      iterator(collection[item], item, collection);
-    }
-  }
-};
-*/
-
-
 var makeLinkedList = function(){
   var list = {};
   list.head = null;
@@ -29,27 +11,56 @@ var makeLinkedList = function(){
     }else{
       var oldTail = list.tail;
       oldTail.next = node;
+      node.previous = oldTail;
       list.tail = node;
-
-      // list.head.next = node;
-      // list.tail = node;
-
     }
 
   };
 
+  list.addToHead = function(value){
+    var node = makeNode(value);
+    if(list.head === null && list.tail === null){
+      list.head = node;
+      list.tail = node;
+    }else{
+      var oldHead = list.head;
+      node.next = oldHead;
+      oldHead.previous = node;
+      list.head = node;
+    }
+
+  };
+
+
   list.removeHead = function(){
     var oldHead = list.head;
-    list.head = oldHead.next;
+    if(list.head.next !== null){
+      list.head = oldHead.next;
+      list.head.previous = null;
+    }else{
+      list.head = null;
+      list.tail = null;
+    }
+    return oldHead.value;
+  };
+
+  list.removeTail = function(){
+    //var oldTail = list.tail;
+    // oldTail.previous = list.tail;
+    // list.tail.next = null;
+    var result = list.tail.value;
+    if(list.tail.previous !== null){
+      list.tail = list.tail.previous;
+      list.tail.next = null;
+    }else{
+      list.tail = null;
+      list.head = null;
+    }
+    return result;
   };
 
   list.contains = function(target){
     var result = false;
-    // _.each(list, function(item){
-    //   if(item.value === target){
-    //     result = true;
-    //   }
-    // });
     var checkNode = function(node){
       if(node.value === target){
         result = true;
@@ -69,24 +80,7 @@ var makeNode = function(value){
   var node = {};
   node.value = value;
   node.next = null;
+  node.previous = null;
 
   return node;
 };
-//    if(list.head === null){
-//
-    /*
-      list.head = null;
-      list.head = list.tail || null;
-      list.node.next = list.tail;
-      list.tail = makeNode(value);
-    */
-/*
-      }else{
-      list.tail.next = value;
-      list.tail = makeNode(value);
-    }
-*/
-/*
-    list.head = list.head.next;
-    console.log(list);
-*/
