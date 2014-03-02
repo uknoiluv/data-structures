@@ -1,18 +1,13 @@
 var makeQueue = function(){
   var instance = {};
 
-  // Use an object with numeric keys to store values
   instance._storage = {};
   instance._size = 0;
 
   _.extend(instance, queueMethods);
-  // Implement the methods below
-
-
 
   return instance;
 };
-
 
 var queueMethods = {
   "enqueue" : function(value){

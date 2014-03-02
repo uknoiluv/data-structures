@@ -1,15 +1,9 @@
 var Queue = function(){
 
-  // Use an object with numeric keys to store values
   this._storage = {};
   this._size = 0;
 
-  // Implement the methods below
-
-
-
 };
-
 
   Queue.prototype.enqueue = function(value){
     var storage = this._storage;

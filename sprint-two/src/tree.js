@@ -7,7 +7,6 @@ var makeTree = function(value){
   return newTree;
 };
 
-
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
@@ -18,13 +17,10 @@ treeMethods.addChild = function(value){
 
 treeMethods.contains = function(target){
   var foundTarget = false;
- // console.log(this.value);
-//  console.log(children);
   var checkTree = function(tree){
     var children = tree.children;
     var value = tree.value;
     if (value === target) {
-     // console.log(this.value);
       foundTarget = true;
     }
     if (children.length !== 0) {

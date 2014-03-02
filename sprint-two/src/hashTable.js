@@ -32,4 +32,3 @@ HashTable.prototype.remove = function(k){
     }
   }
 };
-

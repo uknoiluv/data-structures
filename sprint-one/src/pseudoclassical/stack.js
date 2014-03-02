@@ -5,8 +5,6 @@ var Stack = function(){
 
 };
 
-
-
   Stack.prototype.push = function(value){
     this._storage[this._size++] = value;
   };
@@ -23,7 +21,5 @@ var Stack = function(){
   Stack.prototype.size = function(){
     return this._size;
   };
-
-
 
 var stack = new Stack();
