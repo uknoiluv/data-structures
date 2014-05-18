@@ -1,13 +1,8 @@
 var makeQueue = function(){
   var instance = Object.create(queueMethods);
 
-  // Use an object with numeric keys to store values
   instance._storage = {};
   instance._size = 0;
-
-  // Implement the methods below
-
-
 
   return instance;
 };

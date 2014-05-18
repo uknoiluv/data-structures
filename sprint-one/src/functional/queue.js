@@ -39,12 +39,10 @@
 var makeQueue = function(){
   var instance = {};
 
-  // Use an object with numeric keys to store values
   var storage = {};
   var size = 0;
   var start = -1;
   var end = -1;
-
   // Implement the methods below
 
   instance.enqueue = function(value){

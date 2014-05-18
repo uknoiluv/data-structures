@@ -45,13 +45,16 @@
 var makeQueue = function(){
   
   var instance = {};
+
   // Use an object with numeric keys to store values
+
   instance._storage = {};
 //  instance._size = 0;
   instance._start = -1;
   instance._end = -1;
 
   _.extend(instance, queueMethods);
+
   return instance;
 }
   // Implement the methods below
